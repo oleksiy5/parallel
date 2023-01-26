@@ -7,6 +7,7 @@ Parallel.For is a method in the `System.Threading.Tasks` namespace in C# that al
 `Parallel.For` and `Task.Factory.StartNew` can both be used for parallel execution of code, but `Parallel.For` is typically used for parallelizing loops and Task.Factory.StartNew is used for creating and executing individual tasks.
 
 > In the example, the method performs tasks returns the result to the main task, and the final result is calculated from the partial results.
+> Make five modulo computations for 1, 2, 3, 4, 5 numeber. Make it parallel, in the end sum all computaion results, disply sum result on console.
 
 # Task.Factory.StartNew
 
