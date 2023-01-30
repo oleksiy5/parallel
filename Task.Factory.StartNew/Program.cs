@@ -11,10 +11,14 @@ public class Example
 	//while true ; do cat fi.log ;sleep 1  ; done
 	Console.WriteLine("Start Main");
 	Task t = Task.Factory.StartNew(() => LongComputation());
+	var r = new Random();
 	while(true)
 	{
-		Console.WriteLine("Computation proceed but you can use app.");
+		Console.WriteLine("Long computation proceed has started, but you can use app...");
+		Console.WriteLine("Guess the number from 1 to 10. (type number or exit command.)");
+
 		string cmd = Console.ReadLine();
+
 		if(cmd == "exit")
 		{
 			Console.WriteLine("see you next time!");
@@ -22,7 +26,11 @@ public class Example
 		}
 		else
 		{
-			Console.WriteLine("I am async :) "+cmd );
+			int random = r.Next(1, 10);
+			if(cmd == random.ToString())
+				Console.WriteLine("You are WIN!. The number is "+ random) ;
+			else
+				Console.WriteLine("Try again. The number is "+ random);
 		}
 
 	}
