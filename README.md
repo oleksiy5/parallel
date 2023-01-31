@@ -30,3 +30,17 @@ Task.Factory.StartNew(() =>
         client.DownloadFile(url, "largefile.zip");
     }
 });
+
+# Thread
+
+A `foreground thread` is a thread that has higher priority than a background thread and continues executing until it is completed. A `background thread` is a low-priority thread that runs in the background, typically used for tasks that don't need to block the UI, such as a file download. The system may end a background thread at any time to free up system resources.
+
+# Thread Vs Task
+
+Thread and Task are both used for asynchronous programming in .NET. The main difference is:
+
+    Thread is a lower-level concept and creates a separate execution context in the process.
+    Task is a higher-level concept that represents an asynchronous operation and is built on top of threads. It provides a more convenient and flexible way to handle asynchronous operations compared to threads.
+
+In general, it is recommended to use Tasks for most asynchronous operations, as they provide a more modern and convenient way of handling asynchronous operations than Threads.
+
