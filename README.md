@@ -43,3 +43,15 @@ Thread and Task are both used for asynchronous programming in .NET. The main dif
 
 In general, it is recommended to use Tasks for most asynchronous operations, as they provide a more modern and convenient way of handling asynchronous operations than Threads.
 
+# Process Vs Thread Vs Task
+
+Process, Thread, and Task are related but distinct concepts in computer science:
+
+/1/ **Process**: An instance of a program in execution. Each process runs in its own isolated environment and has its own memory space, system resources, and execution context.
+
+/2/ **Thread**: A thread is a lightweight unit of execution within a process that can run simultaneously with other threads in the same process. It shares the process's resources, including memory and system resources.
+
+/3/ **Task**: A Task is a higher-level construct for asynchronous programming in .NET. It represents a single operation that can be executed asynchronously. Tasks are built on top of threads and use them for execution, but they provide a more convenient and flexible way to handle asynchronous operations compared to threads.
+
+In general, a process is the container for executing a program, a thread is a unit of execution within a process, and a task is a higher-level concept for asynchronous programming that can be executed by a thread.
+
