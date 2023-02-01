@@ -56,3 +56,11 @@ Process, Thread, and Task are related but distinct concepts in computer science:
 In general, a process is the container for executing a program, a thread is a unit of execution within a process, and a task is a higher-level concept for asynchronous programming that can be executed by a thread.
 
 # Abort, Suspend (not supported 6.0)
+
+`Thread.Abort` and `Thread.Suspend` methods are not supported in modern versions of .NET because they have several disadvantages:
+
+`Abort`: The Abort method abruptly terminates the thread, which can cause unhandled exceptions and other unpredictable behavior. This can lead to resource leaks, corrupted data, and other serious problems.
+
+`Suspend`: The Suspend method suspends the execution of a thread, which can cause deadlocks if the suspended thread holds a lock that other threads are waiting for. This can lead to serious performance issues and make the program difficult to debug.
+
+Therefore, these methods were deprecated and are no longer recommended for use. Instead, it is recommended to use a shared variable or a cancellation token to stop a thread gracefully.
