@@ -64,3 +64,7 @@ In general, a process is the container for executing a program, a thread is a un
 `Suspend`: The Suspend method suspends the execution of a thread, which can cause deadlocks if the suspended thread holds a lock that other threads are waiting for. This can lead to serious performance issues and make the program difficult to debug.
 
 Therefore, these methods were deprecated and are no longer recommended for use. Instead, it is recommended to use a shared variable or a cancellation token to stop a thread gracefully.
+
+# Shared variable (recomended)
+
+In .NET Core, the recommended way to stop a thread is to use a shared variable or a cancellation token that the thread checks periodically. If the thread is checking the variable or token and sees that it's time to stop, it can gracefully exit.
