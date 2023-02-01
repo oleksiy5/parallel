@@ -55,3 +55,4 @@ Process, Thread, and Task are related but distinct concepts in computer science:
 
 In general, a process is the container for executing a program, a thread is a unit of execution within a process, and a task is a higher-level concept for asynchronous programming that can be executed by a thread.
 
+# Abort, Suspend (not supported 6.0)
