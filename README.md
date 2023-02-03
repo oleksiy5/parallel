@@ -68,3 +68,7 @@ Therefore, these methods were deprecated and are no longer recommended for use. 
 # Shared variable (recomended)
 
 In .NET Core, the recommended way to stop a thread is to use a shared variable or a cancellation token that the thread checks periodically. If the thread is checking the variable or token and sees that it's time to stop, it can gracefully exit.
+
+# async/await
+
+`Async/Await` is a pattern in C# that enables asynchronous, `non-blocking programming`. The **async** keyword is used to declare a method that contains asynchronous operations and the **await** keyword is used to wait for the result of an asynchronous operation. This pattern makes it easy to write asynchronous code that is both readable and maintainable, and it helps prevent issues with blocking the UI thread or running out of resources.
