@@ -72,3 +72,11 @@ In .NET Core, the recommended way to stop a thread is to use a shared variable o
 # async/await
 
 `Async/Await` is a pattern in C# that enables asynchronous, `non-blocking programming`. The **async** keyword is used to declare a method that contains asynchronous operations and the **await** keyword is used to wait for the result of an asynchronous operation. This pattern makes it easy to write asynchronous code that is both readable and maintainable, and it helps prevent issues with blocking the UI thread or running out of resources.
+
+# async/await Vs Thread are two concepts for handling concurrency in .NET Core:
+
+async/await is a language feature that enables you to write asynchronous code in a way that looks and behaves like synchronous code. It makes it easier to write and maintain asynchronous code, and it provides a higher-level abstractions for managing concurrency.
+
+Thread is a lower-level way of handling concurrency, and it provides a way to run code in parallel on multiple threads. With Thread, you have more control over how your code runs in a multithreaded environment, but it can be more difficult to write and maintain compared to async/await.
+
+In general, it's recommended to use async/await for most concurrency scenarios in .NET Core, as it provides a more readable and maintainable way to write asynchronous code. However, in some cases, such as when you need fine-grained control over threading, Thread may be a better choice.
