@@ -80,3 +80,6 @@ async/await is a language feature that enables you to write asynchronous code in
 Thread is a lower-level way of handling concurrency, and it provides a way to run code in parallel on multiple threads. With Thread, you have more control over how your code runs in a multithreaded environment, but it can be more difficult to write and maintain compared to async/await.
 
 In general, it's recommended to use async/await for most concurrency scenarios in .NET Core, as it provides a more readable and maintainable way to write asynchronous code. However, in some cases, such as when you need fine-grained control over threading, Thread may be a better choice.
+
+
+https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050
