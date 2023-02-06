@@ -81,5 +81,12 @@ Thread is a lower-level way of handling concurrency, and it provides a way to ru
 
 In general, it's recommended to use async/await for most concurrency scenarios in .NET Core, as it provides a more readable and maintainable way to write asynchronous code. However, in some cases, such as when you need fine-grained control over threading, Thread may be a better choice.
 
+# When to use Async/Await
+
+There are basically two scenarios where Async/Await is the right solution.
+
+/1/ **I/O-bound work**: Your code will be waiting for something, such as data from a database, reading a file, a call to a web service. In this case you should use Async/Await, but not use the Task Parallel Library.
+
+/2/ **CPU-bound work**: Your code will be performing a complex computation. In this case, you should use Async/Await but spawn the work off on another thread using Task.Run. You may also consider using the Task Parallel Library.
 
 https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050
