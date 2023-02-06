@@ -91,39 +91,6 @@ There are basically two scenarios where Async/Await is the right solution.
 
 # async/await vs sync
 
-using System;
-using System.Threading.Tasks;
-
-namespace AsyncAwaitExample
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Before call to Method1");
-            await Method1();
-            Console.WriteLine("After call to Method1");
-
-            Console.WriteLine("Before call to Method2");
-            await Method2();
-            Console.WriteLine("After call to Method2");
-
-            Console.ReadLine();
-        }
-
-        static async Task Method1()
-        {
-            await Task.Delay(1000);
-            Console.WriteLine("Method1");
-        }
-
-        static async Task Method2()
-        {
-            await Task.Delay(2000);
-            Console.WriteLine("Method2");
-        }
-    }
-}
-
+basic simulation to do with return result when we need summarise somthing.
 
 https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050
