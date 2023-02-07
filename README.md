@@ -60,7 +60,7 @@ Therefore, these methods were deprecated and are no longer recommended for use. 
 
 # Shared variable (recomended)
 
-In .NET Core, the recommended way to stop a thread is to use a shared variable or a cancellation token that the thread checks periodically. If the thread is checking the variable or token and sees that it's time to stop, it can gracefully exit.
+In .NET Core, the recommended way to stop a thread is to use a **shared variable** or a **cancellation token** that the thread checks periodically. If the thread is checking the variable or token and sees that it's time to stop, it can gracefully exit.
 
 # async/await
 
