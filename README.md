@@ -28,9 +28,12 @@ A `foreground thread` is a thread that has higher priority than a background thr
 # Thread Vs Task
 
 Thread and Task are both used for asynchronous programming in .NET. The main difference is:
-/1/ `Thread` is a `lower-level` concept and creates a separate execution context in the process.
-/2/ `Task` is a higher-level concept that represents an asynchronous operation and is built on top of threads. It provides a more convenient and flexible way to handle asynchronous operations compared to threads.
-
+>
+> /1/ `Thread` is a `lower-level` concept and creates a separate execution context in the process.
+>
+> /2/ `Task` is a higher-level concept that represents an asynchronous operation and is built on top of threads. It provides a more convenient and 
+> flexible way to handle asynchronous operations compared to threads.
+>
 In general, it is recommended to use Tasks for most asynchronous operations, as they provide a more modern and convenient way of handling asynchronous operations than Threads.
 
 # Process Vs Thread Vs Task
