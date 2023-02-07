@@ -21,16 +21,6 @@ Parallel.For is a method in the `System.Threading.Tasks` namespace in C# that al
 >
 without causing the user interface to become unresponsive. Additionally, using Task.Factory.StartNew can help to improve the performance of your application by allowing it to take full advantage of multiple cores or processors.
 
-string url = "http://example.com/largefile.zip";
-
-Task.Factory.StartNew(() =>
-{
-    using (WebClient client = new WebClient())
-    {
-        client.DownloadFile(url, "largefile.zip");
-    }
-});
-
 # Thread
 
 A `foreground thread` is a thread that has higher priority than a background thread and continues executing until it is completed. A `background thread` is a low-priority thread that runs in the background, typically used for tasks that don't need to block the UI, such as a file download. The system may end a background thread at any time to free up system resources.
