@@ -58,10 +58,12 @@ In general, a process is the container for executing a program, a thread is a un
 
 Therefore, these methods were deprecated and are no longer recommended for use. Instead, it is recommended to use a `shared variable` or a `cancellation token` to stop a thread gracefully.
 
-# Shared variable (recomended)
+# Shared variable Vs cancelation token (recomended)
 
 In .NET Core, the recommended way to stop a thread is to use a **shared variable** or a **cancellation token** that the thread checks periodically. If the thread is checking the variable or token and sees that it's time to stop, it can gracefully exit.
 
+Both approach is good and operate on the thread level, but `cancelation token` is more elegant.
+ 
 # async/await
 
 `Async/Await` is a pattern in C# that enables asynchronous, `non-blocking programming`. The **async** keyword is used to declare a method that contains asynchronous operations and the **await** keyword is used to wait for the result of an asynchronous operation. This pattern makes it easy to write asynchronous code that is both readable and maintainable, and it helps prevent issues with blocking the UI thread or running out of resources.
