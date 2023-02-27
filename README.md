@@ -88,4 +88,17 @@ There are basically two scenarios where Async/Await is the right solution.
 
 basic simulation to do with return result when we need summarise somthing.
 
-https://medium.com/@deep_blue_day/long-story-short-async-await-best-practices-in-net-1f39d7d84050
+
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program {
+    static async Task Main(string[] args) {
+        using var client = new HttpClient();
+        HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/todos/1");
+        string content = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(content);
+    }
+}
+
