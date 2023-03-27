@@ -1,0 +1,32 @@
+using System; 
+using System.Net.Http; 
+using System.Threading.Tasks;
+
+class Program 
+{
+       //to class make ether examples	
+	static void Main(string[] args) 
+	{ 
+		M1();
+		M2();
+	} 
+	
+	static void M1()
+	{
+		for(;;)
+		{
+			Console.WriteLine("from M1: {0}", DateTime.Now);
+			Task.Delay(1500).Wait();
+		}
+	}
+
+	static void M2()
+	{
+		for(;;)
+		{
+			Console.WriteLine("from M2: {0}", DateTime.Now);
+			Task.Delay(1500).Wait();
+		}
+
+	}
+}

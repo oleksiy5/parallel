@@ -1,0 +1,37 @@
+using System; 
+using System.Net.Http; 
+using System.Threading.Tasks;
+
+class Program 
+{
+	//to class make ether examples	;;explanation what Task shoudl return
+	static void Main(string[] args) 
+	{ 
+		M1();
+		M2();
+		Console.ReadLine();
+	} 
+
+	static async Task M1()
+	{
+		await Task.Run(() => {
+				for(;;)
+				{
+				Console.WriteLine("from M1: {0}", DateTime.Now);
+				Task.Delay(1500).Wait();
+				}
+				}
+			      );
+	}
+
+	static async Task M2()
+	{
+		await Task.Run(() => {
+				for(;;)
+				{
+				Console.WriteLine("from M2: {0}", DateTime.Now);
+				Task.Delay(100).Wait();
+				}});
+
+	}
+}
