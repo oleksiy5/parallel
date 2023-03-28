@@ -78,6 +78,10 @@ In general, it's recommended to use async/await for most concurrency scenarios i
 
 # When to use Async/Await
 
+When such communications occur, the software on the client side cannot control or predict the speed of the response from the server. If the client sends a synchronous request to the server, the calling thread blocks until the server response is obtained and processed. Such blockage can lead to e.g. GUI or web application freezing completely for an unspecified period of time - which is definitely not desirable. On the positive side, however, the synchronous calls, preserve the program structure - calling the server synchronously is as easy (from the developer's point of view) as making a local call. 
+
+Exercises how fast it is ... show on examples
+
 There are basically two scenarios where Async/Await is the right solution.
 
 /1/ **I/O-bound work**: Your code will be waiting for something, such as data from a database, reading a file, a call to a web service. In this case you should use Async/Await, but not use the Task Parallel Library.
@@ -86,19 +90,4 @@ There are basically two scenarios where Async/Await is the right solution.
 
 # async/await vs sync
 
-basic simulation to do with return result when we need summarise somthing.
-
-
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-class Program {
-    static async Task Main(string[] args) {
-        using var client = new HttpClient();
-        HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/todos/1");
-        string content = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(content);
-    }
-}
-
+....
