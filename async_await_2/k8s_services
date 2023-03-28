@@ -1,0 +1,65 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2023-03-27T11:58:37Z"
+    labels:
+      app: nginx
+    name: nginx
+    namespace: default
+    resourceVersion: "4223"
+    uid: 9ff683a6-7153-4d24-8d73-83c8a4b72d7c
+  spec:
+    clusterIP: 10.96.22.52
+    clusterIPs:
+    - 10.96.22.52
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31585
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: nginx
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2023-03-28T07:14:56Z"
+    labels:
+      app: nginx2
+    name: nginx2
+    namespace: default
+    resourceVersion: "5623"
+    uid: 32915f83-cea9-44ad-a35d-5e9eb4ecc07b
+  spec:
+    clusterIP: 10.101.90.109
+    clusterIPs:
+    - 10.101.90.109
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31586
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: nginx2
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
