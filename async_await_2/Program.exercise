@@ -1,0 +1,68 @@
+using System; 
+using System.Net.Http; 
+using System.Threading.Tasks;
+using System.Net;
+using System.IO;
+class Program 
+{
+	static string _url1 = "http://192.168.49.2:31585";// service 1
+	static string _url2 = "http://192.168.49.2:31586";// service 2
+	
+	static void Main(string[] args) 
+	{ 
+		Task<string> t1 = M1();
+		Task<string> t2 = M2();
+
+	        Console.WriteLine("{0} {1}", t1.Result, t2.Result);
+
+		Console.ReadLine();
+	} 
+
+
+	static async Task<string> M1()
+	{
+		await Task.Run(() => {
+				for(int i=0;i<10;i++)
+				{
+				Console.WriteLine("< M1 >: {0}", DateTime.Now);
+				Task.Delay(1000).Wait();
+				}
+				}
+			      );
+
+		return GetValueFromService(_url1);
+	}
+        
+	static async Task<string> M2()
+	{
+		await Task.Run(() => {
+				for(int i=0;i<10;i++)
+				{
+				Console.WriteLine("- M2 -: {0}", DateTime.Now);
+				Task.Delay(500).Wait();
+				}
+				});
+
+		return GetValueFromService(_url2);
+	}
+
+        static string GetValueFromService(string url)
+	{
+		  HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+		  request.Method = WebRequestMethods.Http.Get;
+		  request.Timeout = 20000;
+		  request.Proxy = null;
+		  return ReadStreamFromResponse(request.GetResponse());
+	}
+
+	static string ReadStreamFromResponse(WebResponse response)
+	    {
+		using (Stream responseStream = response.GetResponseStream())
+		using (StreamReader sr = new StreamReader(responseStream))
+		{
+		    string strContent = sr.ReadToEnd();
+		    return strContent;
+		}
+	    }
+
+}
