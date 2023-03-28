@@ -78,7 +78,13 @@ In general, it's recommended to use async/await for most concurrency scenarios i
 
 # When to use Async/Await
 
-When such communications occur, the software on the client side cannot control or predict the speed of the response from the server. If the client sends a synchronous request to the server, the calling thread blocks until the server response is obtained and processed. Such blockage can lead to e.g. GUI or web application freezing completely for an unspecified period of time - which is definitely not desirable. On the positive side, however, the synchronous calls, preserve the program structure - calling the server synchronously is as easy (from the developer's point of view) as making a local call. 
+When such communications occur, the software on the client side cannot control or predict the speed of the response from the server. If the client sends a synchronous request to the server, the calling thread blocks until the server response is obtained and processed. Such blockage can lead to e.g. GUI or web application freezing completely for an unspecified period of time - which is definitely not desirable. 
+
+On the positive side, however, the synchronous calls, preserve the program structure - calling the server synchronously is as easy (from the developer's point of view) as making a local call. 
+
+We can also solve the communication problem by using asynchronous communications with the server. 
+
+The purpose of TPL and the async-await features is to make the asynchronous programming almost as simple as the synchronous programming, allowing the developers to preserve the logical structure of the code even when it executes asynchronously. 
 
 Exercises how fast it is ... show on examples
 
