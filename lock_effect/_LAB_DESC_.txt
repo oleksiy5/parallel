@@ -1,0 +1,6 @@
+- "lock" effect:
+  - in some cases lead asynch to synch
+  - example:
+    - sync execution ~44s
+    - async execusion ~15s
+    - async with lock execusion ~44s
