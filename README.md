@@ -96,4 +96,9 @@ There are basically two scenarios where Async/Await is the right solution.
 
 # async/await vs sync
 
-....
+# deadlock
+
+If threads are not properly managed, deadlocks can occur when each thread is waiting for resources held by another thread, causing the program to become unresponsive.
+
+
+
