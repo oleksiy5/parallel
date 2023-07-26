@@ -111,7 +111,7 @@ Asynch example
         -(wait)-> resourceB <-(1)- t2
 
      
-To solve the above problem, we can use Monitor (also known as lock in C#) to avoid the deadlock in the previous example. The idea is to make sure that the threads always acquire the locks in the same order to prevent circular waiting.
+To prevent deadlocks, it is crucial to avoid circular dependencies between resources. By ensuring a consistent order of resource acquisition, we can eliminate the possibility of deadlocks.
 
 examples: deadlock_and_sln
 
