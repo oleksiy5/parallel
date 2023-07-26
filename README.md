@@ -102,6 +102,11 @@ If threads are not properly managed, deadlocks can occur when each thread is wai
 
      t1 -(1)- > resourceA
         -(2)- > resourceB
+
+     t1 -(1)->    resourceA <-(wait)-
+        -(wait)-> resourceB <-(1)- t2
+
+     
  
 
 
