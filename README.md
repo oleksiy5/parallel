@@ -113,5 +113,6 @@ Asynch example
      
 To solve the above problem, we can use Monitor (also known as lock in C#) to avoid the deadlock in the previous example. The idea is to make sure that the threads always acquire the locks in the same order to prevent circular waiting.
 
+examples: deadlock_and_sln
 
 
