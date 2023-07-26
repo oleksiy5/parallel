@@ -100,11 +100,9 @@ There are basically two scenarios where Async/Await is the right solution.
 
 If threads are not properly managed, deadlocks can occur when each thread is waiting for resources held by another thread, causing the program to become unresponsive.
 
------------------------
-     t1
------------------------
-    (1)         (2)
-|resourceA| |resourceB| 
+     t1 -(1)- > resourceA
+        -(2)- > resourceB
+ 
 
 
 
