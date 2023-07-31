@@ -27,12 +27,15 @@ class DedlockExaple
 
 	static void ReadFileAndPrint(string thID)
 	{
-		lock(_lockRW)
+		for(int i=0;i < 5;i++)
 		{
-			Read(thID);
-			lock(_lockP)
+			lock(_lockRW)
 			{
-				Print(thID);
+				Read(thID);
+				lock(_lockP)
+				{
+					Print(thID);
+				}
 			}
 		}
 	}
@@ -51,9 +54,10 @@ class DedlockExaple
 
 	static void Print(string thID)
 	{
-		Console.WriteLine("print "+thID);
+		int c = _printCounter + 1;
 		Thread.Sleep(200);
-		_printCounter++;
+		_printCounter = c;
+		Console.WriteLine("print "+thID+";count "+_printCounter);
 	}
 
 	static void Write(string thID)
