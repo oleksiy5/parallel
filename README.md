@@ -116,6 +116,9 @@ Option 1 (design pattern): It is crucial to avoid circular dependencies between 
 
 Option 2 (recognition mechanism): Use a recognition mechanism to detect the locked status of the resource and periodically check if it is available.
 
+(NO): 
+(OK): In C#, the Interlocked class provides methods to perform atomic operations on variables. These operations ensure that multiple threads can safely interact with the shared variables without causing data corruption or race conditions.
+
 examples: 
  - deadlock_and_sln
 
