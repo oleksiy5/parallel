@@ -112,10 +112,12 @@ Asynch example
 
      To prevent deadlocks:
 
-Option 1 (design pattern): It is crucial to avoid circular dependencies between resources. By ensuring a consistent order of resource acquisition, we can eliminate the possibility of deadlocks.
+Possible solutions:
+
+Option 1 (design pattern): It is crucial to avoid circular dependencies between resources. By ensuring a consistent order of resource acquisition, we can eliminate the possibility of deadlocks. examples: deadlock_and_sln
 
 Option 2 (recognition mechanism): Use a recognition mechanism to detect the locked status of the resource and periodically check if it is available.
 
-examples: deadlock_and_sln
+
 
 
