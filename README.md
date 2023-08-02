@@ -96,7 +96,7 @@ There are basically two scenarios where Async/Await is the right solution.
 
 # async/await vs sync
 
-# deadlock
+# deadlock && synchronization mechanisms
 
 If threads are not properly managed, deadlocks can occur when each thread is waiting for resources held by another thread, causing the program to become unresponsive.
 
@@ -107,12 +107,10 @@ Synch example
 
 Asynch example
 
-     t1 -(1)->    resourceA <-(wait)-
-        -(wait)-> resourceB <-(1)- t2
+     t1 -(  1 )-> resourceA <-(wait)-
+        -(wait)-> resourceB <-( 1  )- t2
 
-     To prevent deadlocks:
-
-Possible solutions:
+To prevent deadlocks:
 
 Option 1 (design pattern): It is crucial to avoid circular dependencies between resources. By ensuring a consistent order of resource acquisition, we can eliminate the possibility of deadlocks. examples: deadlock_and_sln
 
