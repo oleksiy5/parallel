@@ -3,7 +3,9 @@ using System.Threading;
 
 class DedlockExaple
 {
-	//todo show bad example with lock
+	//todo show bad example with lock like check variable (not atomic) base od variables 
+	//Monitor.TryEnter();
+	//Monitor.Exit().
 	static int  _lockP = 0;
 	static object  _lockRW = new();
 
@@ -26,12 +28,14 @@ class DedlockExaple
 		Console.WriteLine("Exec has completed.");
 	}
 
+	//Read date from file; Print data 
 	static void ReadFileAndPrint(string thID)
 	{
 		int sec = DateTime.Now.Millisecond;
 		int m = (sec%2)*2;
 		Thread.Sleep(sec*m);
-		if(0 == Interlocked.Exchange(ref _lockP, 1))
+
+		if(0 == Interlocked.Exchange(ref _lockP, 1))//<< Atomic operation
 		{
 			for(int i = 0; i < 3; i++)
 			{
@@ -48,22 +52,21 @@ class DedlockExaple
 		}
 		else
 		{
-			Thread.Sleep(2000);
-			ReadFileAndPrint(thID);
+			Thread.Sleep(200);
+			ReadFileAndPrint(thID);//<< Recurent
 		}
 	}
 	
+	//Print data; Write to file
 	static void PrintAndWriteFile(string txt, string thID)
 	{
 		int sec = DateTime.Now.Millisecond;
 		int m = (sec%2)*2;
 		Thread.Sleep(sec*m);
-		if(0 == Interlocked.Exchange(ref _lockP, 1))
+		if(0 == Interlocked.Exchange(ref _lockP, 1))// << Recurent operation
 		{
 			Console.WriteLine("Lock for th"+thID);
 			
-			//code
-
 			for(int i = 0; i < 3; i++)
 			{
 				lock((object)_lockP)
@@ -81,7 +84,7 @@ class DedlockExaple
 		}
 		else
 		{
-			Thread.Sleep(2000);
+			Thread.Sleep(200);
 			PrintAndWriteFile(txt, thID);
 		}
 	}
