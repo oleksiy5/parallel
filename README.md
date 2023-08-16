@@ -35,13 +35,12 @@ The Interlocked class provides methods for performing atomic operations on share
 
 Some commonly used methods from the Interlocked class include:
 
-1/ Interlocked.Increment: Increments the specified variable and returns the new value.
+/1/ Interlocked.Increment: Increments the specified variable and returns the new value.
 
-2/ Interlocked.Decrement: Decrements the specified variable and returns the new value.
+/2/ Interlocked.Decrement: Decrements the specified variable and returns the new value.
 
-3/ Interlocked.Exchange: Replaces the value of a variable and returns the original value.
-
-4/ Interlocked.CompareExchange: Compares two values and replaces one if they are equal. It returns the original value.
+/3/ Interlocked.Exchange: Replaces the value of a variable and returns the original value.
+/4/ Interlocked.CompareExchange: Compares two values and replaces one if they are equal. It returns the original value.
 
 Interlocked class is specifically designed for simple atomic operations (int, long). For more complex synchronization scenarios, you might need to use other synchronization mechanisms like locks, monitors, or the newer async and await patterns depending on your requirements.
 
