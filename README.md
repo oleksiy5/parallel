@@ -21,6 +21,7 @@ To prevent deadlocks you can few options like (1) lock order, (2) avoid nested l
 example: [2-Program_deadloc_sln1.cs](https://raw.githubusercontent.com/oleksiy5/parallel/main/deadlock_and_sln-v2/2-Program_deadloc_sln1.cs)
 
 [avoid nested lock]
+example: [2.2-Program_no_nested.cs](https://raw.githubusercontent.com/oleksiy5/parallel/main/deadlock_and_sln-v2/2.2-Program_no_nested.cs)
 
 [atomic operations]
 
