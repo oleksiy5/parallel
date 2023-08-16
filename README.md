@@ -16,7 +16,7 @@ example: parallel/deadlock_and_sln-v2/1-Program_deadlock.cs
 
 To prevent deadlocks you can few options like (1) lock order, (2) avoid nested lock, (3) use atomic operations or (4) lock recognise mechanism.
 
-[Lock order]
+[lock order]
 
 [avoid nested lock]
 
