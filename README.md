@@ -31,7 +31,16 @@ Atomic operations are crucial in multithreaded and concurrent programming enviro
 
 By using atomic operations, programmers can ensure that critical sections of code are executed without interference from other threads, leading to more predictable and reliable behavior in multithreaded applications.
 
+The Interlocked class provides methods for performing atomic operations on shared variables. Atomic operations are operations that are performed as a single, uninterruptible unit, which helps prevent race conditions and ensures data consistency in multithreaded scenarios.
 
+Some commonly used methods from the Interlocked class include:
+
+1/ Interlocked.Increment: Increments the specified variable and returns the new value.
+2/ Interlocked.Decrement: Decrements the specified variable and returns the new value.
+3/ Interlocked.Exchange: Replaces the value of a variable and returns the original value.
+4/ Interlocked.CompareExchange: Compares two values and replaces one if they are equal. It returns the original value.
+
+...
 
 ### [lock recognise mechanism]
 
