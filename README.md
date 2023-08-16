@@ -18,6 +18,8 @@ To prevent deadlocks you can few options like (1) lock order, (2) avoid nested l
 
 [lock order]
 
+example: parallel/deadlock_and_sln-v2/2-Program_deadloc_sln1.cs
+
 [avoid nested lock]
 
 [atomic operations]
