@@ -1,3 +1,42 @@
+# deadlock && synchronization mechanisms && problems && solutions
+
+If a few threads write/read from a single resource, a situation may arise that is commonly referred to as a 'dirty read.' This involves deciding based on outdated values, which can lead to business errors. You need to synchronize threads that concurrently access a variable to solve this issue. The synchronization mechanism is called a 'lock,' where one thread reserves access to the variable while other threads wait. However, this mechanism can potentially generate a problem called a deadlock.
+
+Synch example
+
+     t1 -(1)-> resourceA
+        -(2)-> resourceB
+
+Asynch example
+
+     t1 -(  1 )-> resourceA <-(wait)-
+        -(wait)-> resourceB <-( 1  )- t2
+
+To prevent deadlocks you can few options like (1) lock order, (2) avoid nested lock, (3) use atomic operations or (4) lock recognise mechanism.
+
+[Lock order]
+
+[avoid nested lock]
+
+[atomic operations]
+
+Option 1 (lock ordering): It is crucial to avoid circular dependencies between resources. By ensuring a consistent order of resource acquisition, we can eliminate the possibility of deadlocks. 
+
+Option 2 (recognition mechanism): Use a recognition mechanism to detect the locked status of the resource and periodically check if it is available.
+
+(NO): A variable is problematic if we access them in a multithreaded environment. Even increasing a variable by 1 or adding variables by 1 is problematic. 
+This is because the operation is not atomic. A simple variable incrementation is not an atomic operation.
+
+NOTE: An atomic operation refers to an operation that is indivisible or uninterruptible from the perspective of other threads or processes in a concurrent environment. In the context of multithreading or parallel programming, an atomic operation ensures that it appears to occur instantaneously and that no other thread can observe an intermediate or partially completed state of the operation.
+
+Atomic operations are essential for maintaining data consistency and avoiding race conditions in multi-threaded environments. Without atomicity, multiple threads accessing and modifying shared data simultaneously can lead to unpredictable and incorrect results.
+
+(OK): In C#, the Interlocked class provides methods to perform atomic operations on variables. These operations ensure that multiple threads can safely interact with the shared variables without causing data corruption or race conditions.
+
+examples: 
+ - deadlock_and_sln
+
+
 # Parallel.For
 
 Parallel.For is a method in the `System.Threading.Tasks` namespace in C# that allows for the parallel execution of a for loop. It uses the .NET Framework's `Task Parallel Library` (_TPL_) to divide the loop's iterations across multiple threads, potentially improving performance on multi-core systems. The method takes a ParallelOptions object, which can be used to specify the degree of parallelism and a CancellationToken to cancel the loop.
@@ -96,37 +135,6 @@ There are basically two scenarios where Async/Await is the right solution.
 
 # async/await vs sync
 
-# deadlock && synchronization mechanisms (based atomic operations)
-
-If threads are not properly managed, deadlocks can occur when each thread is waiting for resources held by another thread, causing the program to become unresponsive.
-
-Synch example
-
-     t1 -(1)-> resourceA
-        -(2)-> resourceB
-
-Asynch example
-
-     t1 -(  1 )-> resourceA <-(wait)-
-        -(wait)-> resourceB <-( 1  )- t2
-
-To prevent deadlocks:
-
-Option 1 (lock ordering): It is crucial to avoid circular dependencies between resources. By ensuring a consistent order of resource acquisition, we can eliminate the possibility of deadlocks. 
-
-Option 2 (recognition mechanism): Use a recognition mechanism to detect the locked status of the resource and periodically check if it is available.
-
-(NO): A variable is problematic if we access them in a multithreaded environment. Even increasing a variable by 1 or adding variables by 1 is problematic. 
-This is because the operation is not atomic. A simple variable incrementation is not an atomic operation.
-
-NOTE: An atomic operation refers to an operation that is indivisible or uninterruptible from the perspective of other threads or processes in a concurrent environment. In the context of multithreading or parallel programming, an atomic operation ensures that it appears to occur instantaneously and that no other thread can observe an intermediate or partially completed state of the operation.
-
-Atomic operations are essential for maintaining data consistency and avoiding race conditions in multi-threaded environments. Without atomicity, multiple threads accessing and modifying shared data simultaneously can lead to unpredictable and incorrect results.
-
-(OK): In C#, the Interlocked class provides methods to perform atomic operations on variables. These operations ensure that multiple threads can safely interact with the shared variables without causing data corruption or race conditions.
-
-examples: 
- - deadlock_and_sln
 
 
 
