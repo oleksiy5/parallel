@@ -28,9 +28,9 @@ class DedlockExaple
 	{
 		for(;;)
 		{
+
+			_counter++;
 			int v = _counter;
-			v++;
-			_counter = v;	
 			Thread.Sleep(_r.Next(100, 2001));
 			Console.WriteLine("tID=" + tID + ":" + v + ":" + _counter);
 
