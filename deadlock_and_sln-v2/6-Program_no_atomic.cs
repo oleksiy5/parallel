@@ -1,49 +1,35 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 class DedlockExaple
 {
-	static int sec = 2000;
-
 	static int _counter = 0;
-
-        static Random _r;
 
 	static void Main()
 	{
-		_r = new Random();
-		var t1 = new Thread(() => T1("1"));
-		var t2 = new Thread(() => T1("2"));
+		int numTasks = 10;
+		Task[] tasks = new Task[numTasks];
+		for(int i=0; i <numTasks; i++)
+		{
+			tasks[i] = Task.Run(() => T1(i.ToString()));
+		}
+		Task.WaitAll(tasks);
 
-		t1.Start();
-		t2.Start();
-
-		t1.Join();
-		t2.Join();
-		Console.WriteLine("FInal result: "+_counter);
+		Console.WriteLine("_counter: "+_counter);
 	}
 
 
 	static void T1(string tID) 
 	{
-		for(;;)
+		int internalCount = 0;
+		for(int i=0; i<10000; i++)
 		{
-
-			_counter++;
-			int v = _counter;
-			Thread.Sleep(_r.Next(100, 2001));
-			Console.WriteLine("tID=" + tID + ":" + v + ":" + _counter);
-
-			if(_counter >= 5)
-				break;
-		}
-		
+			internalCount++;
+			Thread.Sleep(1);
+			//_counter++;
+			//Interlocked.Increment(ref _counter);
+		}	
+		Console.WriteLine("tID=" + tID + "; internalCount=" + internalCount);
 	}
-
-	static int GetRandom() 
-	{
-		return  new Random().Next(1,201);
-	}
-
 }
-
