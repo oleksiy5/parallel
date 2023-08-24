@@ -20,15 +20,14 @@ class DedlockExaple
 	}
 
 
+	//oczekiwany wynik 10*10000=100 000
 	static void T1(string tID) 
 	{
 		int internalCount = 0;
 		for(int i=0; i<10000; i++)
 		{
 			internalCount++;
-			Thread.Sleep(1);
-			//_counter++;
-			//Interlocked.Increment(ref _counter);
+			_counter++;
 		}	
 		Console.WriteLine("tID=" + tID + "; internalCount=" + internalCount);
 	}
